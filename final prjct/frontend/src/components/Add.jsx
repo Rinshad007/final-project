@@ -18,9 +18,9 @@ const Add = () => {
   const addData = () => {
     console.log("clicked");
     axios
-      .post("http://localhost:5000/api/posts",inputs)
+      .post("http://localhost:3001/api/posts",inputs)
       .then((res) => {
-        alert(res.data.message);
+        alert("Blogg Added");
         navigate("/");
       })
       .catch((err) => {
