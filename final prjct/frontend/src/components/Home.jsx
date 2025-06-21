@@ -20,7 +20,7 @@ function HomePage() {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/posts");
+      const res = await axios.get("http://localhost:3001/api/posts");
       setPosts(res.data);
     } catch (err) {
       console.error("Error fetching posts:", err);
@@ -29,7 +29,7 @@ function HomePage() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/posts/${id}`);
+      await axios.delete(`http://localhost:3001/api/posts/${id}`);
       fetchPosts();
     } catch (err) {
       console.error("Error deleting post:", err);
@@ -43,7 +43,7 @@ function HomePage() {
 
     if (newTitle && newImage && newCategory) {
       try {
-        await axios.put(`http://localhost:5000/api/posts/${post._id}`, {
+        await axios.put(`http://localhost:3001/api/posts/${post._id}`, {
           title: newTitle,
           image: newImage,
           category: newCategory,
