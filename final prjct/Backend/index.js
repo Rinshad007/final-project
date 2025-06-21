@@ -1,20 +1,16 @@
-// server.js
 
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./connection');
 const Post = require('./model');
-
+var PORT = 3001;
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 
 
-// Simple test route
-app.get("/", (req, res) => {
-  res.send("✅ Backend is running!");
-});
+
 
 // Get all posts
 app.get("/api/posts", async (req, res) => {
@@ -46,8 +42,6 @@ app.put("/api/posts/:id", async (req, res) => {
   );
   res.json(updatedPost);
 });
-
-const PORT = 5000;
 app.listen(PORT, () => {
   console.log(` Server running on port ${PORT}`);
 });
